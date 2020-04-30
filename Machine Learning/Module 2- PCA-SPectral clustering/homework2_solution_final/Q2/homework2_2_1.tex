@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{amsmath, amsthm}
+\RequirePackage[colorlinks]{hyperref}
+\usepackage[lined,boxed,linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+% Commands
+\newenvironment{solution}
+  {\begin{proof}[Solution]}
+  {\end{proof}}
+
+\newcommand{\snehaedit}[1]{\textcolor{green}{\emph{[Sneha: #1]}}}
+\newcommand{\hsedit}[1]{\textcolor{magenta}{\emph{[Hang: #1]}}}
+\newcommand{\meeraedit}[1]{\textcolor{red}{\emph{[Meera: #1]}}}
+\newcommand{\prpedit}[1]{\textcolor{blue}{\emph{[Prp: #1]}}}
+
+
+\title{CSE6740: Computational Data Analysis \\ Homework 2}
+\author{Yao Xie}
+
+
+\begin{document}
+
+\maketitle
+
+
+\section*{2.1}
+Denote $\lambda_i,v_i$ as eigenvalue and eigenvector of block $A_i$, then $L_iv_i = \lambda_iv_i$. Pick $v_i = \mathbf{1}$, $L_iv_i = (D_i-A_i)\mathbf{1} = 0 = \lambda_i \mathbf{1}$. Hence, $\lambda_i = 0$. WLOG, we can show that there are $m$ eigenvectors of $L$ corresponding to eigenvalue 0.\\
+Let's consider eigenvectors to eigenvalue 0 for each block $A_i$. If $v$ is the eigenvector to eigenvalue zero, then
+$$v^TL_iv = v^T(D_i-A_i)v = \sum_{i=1}^{n}d_iv_i^2 - \sum_{i=1}^{n}\sum_{j=1}^{n}w_{ij}v_iv_j = \sum_{i = 1}^{n}\sum_{j=1}^{n}w_{ij}(v_i-v_j)^2 = 0$$
+The only solution is $v_1 = v_2 = ... = v_n$. Thus, the only eigenvector to eigenvalue zero is scaled identity vector.\\
+Since $L = $ diag($L_1,...,L_m$), the eigenvectors to eigenvalue zero are linear combinations of $I_{A_1},...,I_{A_m}$
+
+\end{document}
+\end{document}
